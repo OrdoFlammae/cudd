@@ -45,7 +45,7 @@ messages produced by the build process.  The remaining options are specific
 to CUDD.
 
 The three "enable" options control the build of shared libraries.  By
-default, only static libraries are built.  With --enable-shared, a
+default, only static libraries are built.  With `--enable-shared`, a
 shared library for libcudd is built.  (Before installation, it can be
 found in cudd/.libs.)
 
@@ -56,7 +56,7 @@ contains the core CUDD library.
 The `--with-system-qsort` option requests use of the qsort from the
 standard library instead of the portable one shipped with CUDD.  This
 option is provided for backward compatibility and is not otherwise
-recommended.  Some of the tests of "make check" may fail with the
+recommended.  Some of the tests of `make check` may fail with the
 system qsort because variable orders may be generated that are
 different from the reference ones.
 
@@ -71,17 +71,17 @@ make install
 
 which selects alternate compilers instead of gcc and g++, causes the
 C++ wrapper to be included in the shared library, enables parallel
-compilation (with -j4) and finally installs the shared library using
-the default prefix /usr/local.
+compilation (with `-j4`) and finally installs the shared library using
+the default prefix `/usr/local`.
 
 For those unfamiliar with libtool it may be worth noting that the
 libraries it builds go in .libs subdirectories.  One should also note
 that with shared libraries enabled, the test programs immediately
 visible to the user are shell scripts that make sure dynamic linking
 works before installation.  If you want to run valgrind on, say, a
-dynamically linked nanotrav, specify the option --trace-children=yes.
+dynamically linked nanotrav, specify the option `--trace-children=yes`.
 
-PLATFORMS
+## Platforms
 
 This kit has been successfully built on the following configurations:
 
@@ -96,20 +96,20 @@ This kit has been successfully built on the following configurations:
 
 In all these cases, the C++ wrapper was compiled with the matching C++
 compiler (g++ for gcc and clang++ for clang).  To compile under MSYS2
-(MinGW-w64) one has to pass --build=x86_64-w64-mingw32 to ./configure.
+(MinGW-w64) one has to pass `--build=x86_64-w64-mingw32` to `./configure`.
 
 ## Sanity Check
 
 The directory `nanotrav` contains a simple application based on the
 CUDD package.  The `nanotrav` directory contains a man page that
-describes the options nanotrav supports.  The files *.blif are sample
-input files for nanotrav.  The *.out files are the reference output
+describes the options nanotrav supports.  The `*.blif` files are sample
+input files for nanotrav.  The `*.out` files are the reference output
 files.
 
 ## Documentation
 
-If doxygen is installed, running "make" puts HTML documentation for
-the CUDD package in directory cudd-3.0.0/cudd/html. The recommended
-starting point is index.html.  The user's manual in PDF format is
-built in cudd-3.0.0/doc if pdflatex and makeindex are installed.
-Documentation for the dddmp library is in the dddmp/doc subdirectory.
+If doxygen is installed, running `make` puts HTML documentation for
+the CUDD package in `cudd-3.0.0/cudd/html`. The recommended
+starting point is `index.html`.  The user's manual in PDF format is
+built in `cudd-3.0.0/doc` if `pdflatex` and `makeindex` are installed.
+Documentation for the dddmp library is in the `dddmp/doc` subdirectory.
