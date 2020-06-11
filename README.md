@@ -1,3 +1,4 @@
+# CUDD
 The CUDD package is a package written in C for the manipulation of
 decision diagrams.  It supports binary decision diagrams (BDDs),
 algebraic decision diagrams (ADDs), and Zero-Suppressed BDDs (ZDDs).
@@ -13,27 +14,33 @@ included so that you can run a sanity check on your installation.
 Also included in this distribution are the dddmp libray by Giampiero
 Cabodi and Stefano Quer and a C++ object-oriented wrapper for CUDD.
 
-BUILD AND INSTALLATION
+## Building
 
 In the simplest form, you can build the static libraries with:
 
-  ./configure
-  make
-  make check
+```
+./configure
+make
+make check
+```
 
 The configure script provides a few options, which can be listed with
 
-  ./configure --help
+```
+./configure --help
+```
 
 Notable options include
 
-  --enable-silent-rules
-  --enable-shared
-  --enable-dddmp
-  --enable-obj
-  --with-system-qsort
+```
+--enable-silent-rules
+--enable-shared
+--enable-dddmp
+--enable-obj
+--with-system-qsort
+```
 
-The --enable-silent-rules option is a standard option that streamlines the
+The `--enable-silent-rules` option is a standard option that streamlines the
 messages produced by the build process.  The remaining options are specific
 to CUDD.
 
@@ -46,7 +53,7 @@ The last two "enable" options control the inclusion of the dddmp
 library and C++ wrapper in the shared library, which by default only
 contains the core CUDD library.
 
-The --with-system-qsort option requests use of the qsort from the
+The `--with-system-qsort` option requests use of the qsort from the
 standard library instead of the portable one shipped with CUDD.  This
 option is provided for backward compatibility and is not otherwise
 recommended.  Some of the tests of "make check" may fail with the
@@ -55,10 +62,12 @@ different from the reference ones.
 
 As an example, a more elaborate build command sequence may be:
 
-  ./configure CC=clang CXX=clang++ --enable-silent-rules \
-    --enable-shared --enable-obj
-  make -j4 check
-  make install
+```
+./configure CC=clang CXX=clang++ --enable-silent-rules \
+            --enable-shared --enable-obj
+make -j4 check
+make install
+```
 
 which selects alternate compilers instead of gcc and g++, causes the
 C++ wrapper to be included in the shared library, enables parallel
@@ -89,29 +98,18 @@ In all these cases, the C++ wrapper was compiled with the matching C++
 compiler (g++ for gcc and clang++ for clang).  To compile under MSYS2
 (MinGW-w64) one has to pass --build=x86_64-w64-mingw32 to ./configure.
 
-SANITY CHECK
+## Sanity Check
 
-The directory `nanotrav' contains a simple application based on the
-CUDD package.  The `nanotrav' directory contains a man page that
+The directory `nanotrav` contains a simple application based on the
+CUDD package.  The `nanotrav` directory contains a man page that
 describes the options nanotrav supports.  The files *.blif are sample
 input files for nanotrav.  The *.out files are the reference output
 files.
 
-DOCUMENTATION
+## Documentation
 
 If doxygen is installed, running "make" puts HTML documentation for
 the CUDD package in directory cudd-3.0.0/cudd/html. The recommended
 starting point is index.html.  The user's manual in PDF format is
 built in cudd-3.0.0/doc if pdflatex and makeindex are installed.
 Documentation for the dddmp library is in the dddmp/doc subdirectory.
-
-FEEDBACK:
-
-Send feedback to:
-
-Fabio Somenzi
-University of Colorado at Boulder
-ECE Dept.
-Boulder, CO 80309-0425
-Fabio@Colorado.EDU
-http://vlsi.colorado.edu/~fabio
