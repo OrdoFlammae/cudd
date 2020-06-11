@@ -47,7 +47,7 @@ to CUDD.
 The three "enable" options control the build of shared libraries.  By
 default, only static libraries are built.  With `--enable-shared`, a
 shared library for libcudd is built.  (Before installation, it can be
-found in cudd/.libs.)
+found in `cudd/.libs`.)
 
 The last two "enable" options control the inclusion of the dddmp
 library and C++ wrapper in the shared library, which by default only
@@ -75,7 +75,7 @@ compilation (with `-j4`) and finally installs the shared library using
 the default prefix `/usr/local`.
 
 For those unfamiliar with libtool it may be worth noting that the
-libraries it builds go in .libs subdirectories.  One should also note
+libraries it builds go in `.libs` subdirectories.  One should also note
 that with shared libraries enabled, the test programs immediately
 visible to the user are shell scripts that make sure dynamic linking
 works before installation.  If you want to run valgrind on, say, a
